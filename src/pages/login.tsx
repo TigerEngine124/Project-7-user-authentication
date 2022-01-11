@@ -1,16 +1,15 @@
 import { signIn } from 'next-auth/client';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/dist/client/router';
 import { useState } from 'react';
 import { FormLogin } from '../components/FormLogin';
 import { Wrapper } from '../components/Wrapper';
 
 export default function LoginPage() {
+  const router = useRouter();
   const [error, setError] = useState('');
 
   const handleLogin = async (email: string, password: string) => {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    const router = useRouter();
-    const response = await signIn('credential', {
+    const response = await signIn('credentials', {
       email,
       password,
       redirect: false,
