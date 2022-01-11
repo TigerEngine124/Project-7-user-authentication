@@ -2,7 +2,7 @@ import { GetServerSideProps } from 'next';
 import { useSession } from 'next-auth/client';
 
 export default function Index() {
-  const [session, loading] = useSession();
+  const [session /*loading*/] = useSession();
 
   return (
     <h1>
