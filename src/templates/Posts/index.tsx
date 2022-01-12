@@ -5,6 +5,7 @@ import { StrapiPost } from '../../components/FormPost';
 import { Wrapper } from '../../components/Wrapper';
 import { gqlClient } from '../../graphql/client';
 import { GQL_MUTATION_DELETE_POST } from '../../graphql/mutations/post';
+import * as Styled from './styles';
 
 export type PostsTemplateProps = {
   posts?: StrapiPost[];
@@ -51,9 +52,12 @@ export function PostsTemplate({ posts = [] }: PostsTemplateProps) {
             <a>{p.title}</a>
           </Link>{' '}
           |{' '}
-          <button onClick={() => handleDelete(p.id)} disabled={deleting}>
+          <Styled.ButtonWrapper
+            onClick={() => handleDelete(p.id)}
+            disabled={deleting}
+          >
             Excluir
-          </button>
+          </Styled.ButtonWrapper>
         </p>
       ))}
     </Wrapper>
