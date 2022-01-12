@@ -27,5 +27,5 @@ export const WithError: Story<FormLoginProps> = (args) => {
 };
 
 WithError.args = {
-  errorMessage: 'Este e seu Erro',
+  errorMessage: 'Este é seu erro',
 };

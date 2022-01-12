@@ -1,6 +1,6 @@
 import { signOut, useSession } from 'next-auth/client';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import * as Styled from './styles';
 
 export type MenuProps = {
@@ -21,6 +21,7 @@ export const Menu = () => {
     event.preventDefault();
     signOut({ redirect: false });
   };
+
   return (
     <Styled.Wrapper>
       <Link href="/">
@@ -32,6 +33,7 @@ export const Menu = () => {
       <Link href="/create-post">
         <a>Create Post</a>
       </Link>
+
       {session ? (
         <a href="#" onClick={handleClick}>
           Sair
@@ -40,7 +42,9 @@ export const Menu = () => {
         <Link
           href={{
             pathname: '/login',
-            query: { redirect },
+            query: {
+              redirect,
+            },
           }}
         >
           <a>Login</a>

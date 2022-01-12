@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Email } from '@styled-icons/material-outlined/Email';
 import { Password } from '@styled-icons/material-outlined/Password';
+
 import { TextInput } from '../TextInput';
 import * as Styled from './styles';
 import { Button } from '../Button';
@@ -30,7 +31,7 @@ export const FormLogin = ({ errorMessage, onLogin }: FormLoginProps) => {
     <Styled.Wrapper onSubmit={handleSubmit}>
       <TextInput
         name="user-identifier"
-        label="Vosso e-mail"
+        label="Seu e-mail"
         onInputChange={(v) => setEmail(v)}
         value={email}
         icon={<Email />}
@@ -38,7 +39,7 @@ export const FormLogin = ({ errorMessage, onLogin }: FormLoginProps) => {
       />
       <TextInput
         name="user-password"
-        label="Vossa senha"
+        label="Sua senha"
         onInputChange={(v) => setPassword(v)}
         value={password}
         icon={<Password />}
@@ -50,7 +51,7 @@ export const FormLogin = ({ errorMessage, onLogin }: FormLoginProps) => {
       )}
 
       <Styled.ButtonWrapper>
-        <Button disabled={loading}>{loading ? 'aguarde...' : 'ENTRAR'}</Button>
+        <Button disabled={loading}>{loading ? 'Aguarde...' : 'Entrar'}</Button>
       </Styled.ButtonWrapper>
     </Styled.Wrapper>
   );

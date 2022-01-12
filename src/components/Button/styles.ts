@@ -14,22 +14,27 @@ export const Button = styled.button<Pick<ButtonProps, 'color'>>`
     display: flex;
     align-items: center;
     justify-content: center;
+
     &:focus {
       outline: none;
       box-shadow: 0 0 ${theme.spacings.tiny} ${theme.colors[color]};
       filter: brightness(110%);
     }
+
     &:hover {
       filter: brightness(90%);
     }
+
     &:disabled {
       background: ${theme.colors.gray4};
       color: ${theme.colors.gray1};
       cursor: not-allowed;
+
       &:hover {
         filter: none;
       }
     }
+
     > svg {
       width: 2rem;
       height: 2rem;

@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 
 export const Wrapper = styled.div`
   ${({ theme }) => css`
-    border-radius: ${theme.spacings.mediumLarge};
+    border-radius: ${theme.spacings.xlarge};
     max-width: 80rem;
     margin: 8rem auto;
     background: ${theme.colors.white};

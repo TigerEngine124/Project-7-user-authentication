@@ -4,10 +4,12 @@ import { TextInputProps } from '.';
 const onInputError = (theme: DefaultTheme, errorMessage: string) => css`
   border: ${theme.spacings.xxtiny} solid ${theme.colors.warning};
   box-shadow: 0 0 ${theme.spacings.xtiny} 0 ${theme.colors.warning};
+
   &:focus {
     border: ${theme.spacings.xxtiny} solid ${theme.colors.warning};
     box-shadow: 0 0 ${theme.spacings.xtiny} 0 ${theme.colors.warning};
   }
+
   ${!!errorMessage &&
   css`
     &:focus + ${Label}, &:not(:placeholder-shown) + ${Label} {
@@ -27,6 +29,7 @@ export const Wrapper = styled.div`
 export const InputWrapper = styled.div<Pick<TextInputProps, 'errorMessage'>>`
   ${({ theme, errorMessage }) => css`
     position: relative;
+
     > svg {
       position: absolute;
       top: 50%;
@@ -36,27 +39,31 @@ export const InputWrapper = styled.div<Pick<TextInputProps, 'errorMessage'>>`
       height: 2.5rem;
       color: ${theme.colors.gray6};
       z-index: ${theme.layers.layer1};
+
       ${!!errorMessage &&
       css`
         color: ${theme.colors.warning};
       `}
     }
+
     *:focus ~ svg {
       color: ${theme.colors.primary};
+
       ${!!errorMessage &&
       css`
         color: ${theme.colors.warning};
       `}
     }
+
     *:disabled ~ svg {
       color: ${theme.colors.gray3};
     }
   `}
 `;
 
-export const Input = styled.input<
-  Pick<TextInputProps, 'errorMessage' | 'as' | 'type'>
->`
+type StyledInputType = Pick<TextInputProps, 'errorMessage' | 'as' | 'type'>;
+
+export const Input = styled.input<StyledInputType>`
   ${({ theme, errorMessage, as }) => css`
     border: 1px solid ${theme.colors.gray3};
     width: 100%;
@@ -68,15 +75,18 @@ export const Input = styled.input<
     padding-right: 3.7rem;
     border-radius: ${theme.spacings.tiny};
     outline: none;
+
     &::placeholder {
       visibility: hidden;
       opacity: 0;
     }
+
     &:focus {
       border: ${theme.spacings.xxtiny} solid ${theme.colors.primary};
       box-shadow: 0 0 ${theme.spacings.xtiny} 0 ${theme.colors.primary};
       background: ${theme.colors.white};
     }
+
     &:focus
       + ${Label},
       &:not(:placeholder-shown)
@@ -88,23 +98,29 @@ export const Input = styled.input<
       font-size: ${theme.font.sizes.xsmall};
       color: ${theme.colors.white};
       background: ${theme.colors.primary};
+      filter: none;
+
       ${as === 'textarea' &&
       css`
         transform: translate(0, -50%);
       `}
     }
+
     &:disabled {
       background: ${theme.colors.gray1};
       color: ${theme.colors.gray5};
     }
+
     &:disabled + ${Label} {
       background: ${theme.colors.gray5};
       color: ${theme.colors.gray2};
     }
+
     ${as === 'textarea' &&
     css`
       min-height: ${theme.frameSizes.xsmall};
     `}
+
     ${!!errorMessage && onInputError(theme, errorMessage)}
   `}
 `;
@@ -127,6 +143,7 @@ export const Label = styled.label<{ element: string }>`
     z-index: ${theme.layers.layer1};
     color: ${theme.colors.gray6};
     border-radius: ${theme.spacings.tiny};
+
     ${element === 'textarea' &&
     css`
       top: ${theme.spacings.large};
