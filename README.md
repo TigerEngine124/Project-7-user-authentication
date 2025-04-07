@@ -18,7 +18,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 Run the following command on your local environment:
 
 ```
-git clone https://github.com/AlexMarquesAlves/Project-7-user-authentication-reactjs-nextjs-fontend.git my-project-name
+git clone https://github.com/TigerEngine124/Project-7-user-authentication.git my-project-name
 cd my-project-name
 npm install or yarn
 ```
